@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<link rel="stylesheet" href="Style.css">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!--JQUERY-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- 우클릭 방지-->
+    <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        $(window).resize(function(){ 
+    if (window.innerWidth > 900) { 
+        $("#logogif").css("position", "absolute");
+        $("#logogif").css("display", "inline");
+        $("#logogif").css("width", "500px");
+        $("#logogif").css("left", "500px");
+        $("#logogif").css("object-fit", "cover");
+        $("#logogif").css("margin-top", "150px");
+        $(".login-wrapper").css("left", "1400px");
+        $(".login-wrapper").css("object-fit", "cover");
+        $(".login-wrapper").css("position", "absolute");
+        $(".login-wrapper").css("margin-top", "450px");
+        $("#logotext").css("width", "400px");
+        $("#logotext").css("position", "absolute");
+        $("#logotext").css("margin-top", "250px");
+        $("#logotext").css("left", "1400px");
+        $("#logotext").css("object-fit", "cover");
+
+    } else {
+        $("#logogif").css("display", "none");
+        $("#logotext").css("left", "300px");
+        $(".login-wrapper").css("left", "300px");
+    }
+        });
+        $(window).trigger("resize");
+    });
+    </script>
+
+</head>
+<body style="background-color:#FEECB7">
+
+    <img id="logogif" src="logoback.gif">
+    
+    
+    <img id="logotext" src="logotext.png" >
+        
+        <div class="loginBox" >
+            <div class="login-wrapper">
+                <h2>Log in to your account</h2>
+                <form method="post" action="서버의url" id="login-form">
+                    <input type="text" name="userName" placeholder="E-Mail">
+                    <input type="password" name="userPassword" placeholder="Password">
+                    <div class="remember_check_container">
+                        <input id="remember_check" type="checkbox" name="save_id" value="TRUE">
+                        <lable for="remember_check">Remember me</lable>
+                    </div>
+                    <button class="ButtonBox">
+                    <input id="LoginButton" type="submit" value="Login">
+                    <input id="JoinButton" type="submit" value="Join">
+                    </button>
+                </form>
+            </div>
+        </div>
+
+	<button class="test"; onclick="location.href='BBS.html' ">
+                임시버튼 : 다음페이지
+            </button>
+            
+</body>
+</html>

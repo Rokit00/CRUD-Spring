@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+*{
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+#textlogo {
+  text-align: center;
+}
+
+#textlogo > span{
+  font-family: 'Raleway', sans-serif ; 
+  font-size: 40px;
+  letter-spacing : -3.5px;
+}
+
+html, body {margin: 0px; padding: 0px;}
+
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.login-wrapper{
+  position: absolute;
+  
+    background: white;
+    box-Shadow: 0px 0px 5px lightgrey;
+    border-Radius: 10px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+  }
+
+#login-form > input{
+  width: 70%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin: 5px;
+  padding-right: 10px;
+  border-radius: 6px;
+  background-color: #F8F8F8;
+}
+#login-form > input::placeholder{
+  color: #D2D2D2;
+}
+
+.ButtonBox{
+  border: none;
+  background-color:transparent;
+  margin: 10px;
+}
+#JoinButton{
+  color: #fff;
+  font-size: 17px;
+  background-color: #604ABD;
+  height: 50px;
+  width: 100px;
+  margin-left: 4px;
+  border-radius: 10px;
+}
+#JoinButton:hover{
+  background-color: white;
+  color: black;
+}
+#LoginButton{
+background-color: #F5DF4D;
+color : black;
+  font-size: 17px;
+  height: 50px;
+  width: 100px;
+  margin-left: 4px;
+  border-radius: 10px;
+
+}
+#LoginButton:hover{
+  background-color: white;
+  color: black;
+}
+
+.remember_check_container{
+  margin-top: 10px;
+  margin-left: 55px;
+  text-align: left;
+}
+
+
+#write > input {
+  width: 80%; 
+  border: none;
+  margin: 12px 20px 0;
+  box-sizing : border-box;
+}
+  
+
+.test {
+  background-color: #939597;
+  color: #fff;
+  float: right;
+  border-radius: 6px;
+  font-size: 16px;
+  padding : 6px 6px;
+  margin: 20px;
+}
+
+.write-Container {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 50%;
+  margin: 45px auto;
+  border-radius: 20px;
+  
+}
+
+#write > input:focus {
+  outline: none;
+}
+
+.test {
+  background-color: #939597;
+  color: #fff;
+  float: right;
+  border-radius: 6px;
+  font-size: 16px;
+  padding : 6px 6px;
+  margin: 20px;
+}
+
+.bbslogo-Container {
+  background-color: #CAC1F6; 
+  margin: 0 auto; 
+  width: 55%; 
+  height: auto; 
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+
+.bbslogo {
+  width: 13%;
+ margin: auto;
+ display: block;
+
+}
+
+textarea{
+  resize:none;
+  border: none;
+  margin: 12px 20px 12px;
+  width: 90%;
+  box-sizing : border-box;
+ 
+}
+textarea:focus {
+  outline: none;
+  
+}

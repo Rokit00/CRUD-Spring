@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<link rel="stylesheet" href="Style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="City" />
+	<meta property="og:description"  content="우리들의 it 커뮤니티" />
+	<meta property="og:url" content="https://nowonbun.tistory.com" />
+
+    <title>City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- 우클릭 방지-->
+    <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
+    </script>
+   
+</head>
+<body style="background-color:#FEECB7">
+
+    <section>
+
+        <div class="bbslogo-Container">
+   
+            <img src="bbslogo.png" class="bbslogo">
+           <p id="textlogo" >
+                <span style="color: #604ABD;">C</span>
+               <span style="color: black;">i</span>
+                <span style="color: black;">t</span>
+                <span style="color: #F5DF4D;">y</span>
+              </p>
+        </div>
+
+        <button class="test"; onclick="location.href='index.html' ">
+            임시버튼 : 이전페이지
+        </button>
+
+        <div class="write-Container">
+            <form id="write">
+            <input type="text" maxlength='20' placeholder="제목을 입력해주세요." required>
+            <hr>
+            <textarea spellcheck="false" cols="50" rows="10" placeholder="내용" required></textarea>
+            </form>
+        </div>
+
+    </section>
+</body>
+</html>
