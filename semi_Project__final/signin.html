@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="City" />
+	<meta property="og:description"  content="우리들의 it 커뮤니티" />
+	<meta property="og:url" content="https://nowonbun.tistory.com" />
+
+    <title>Community City - 회원가입</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <!-- 우클릭 방지-->
+    <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
+    </script>
+
+
+</head>
+<body>
+    <section id="sec">
+
+        <div class="col-md-7 col-lg-8">
+            <a href="index.html"><img src="images/logotext.png" class="navbar-brand"></a>
+            <form class="needs-validation" novalidate>
+                <div class="row g-3">
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="firstName" placeholder="아이디" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="lastName" placeholder="비밀번호" value="" required>
+            <input type="text" class="form-control" id="lastName" placeholder="비밀번호 확인" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="username" class="form-label">이름</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <div class="invalid-feedback">
+                Your username is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label">이메일 <span class="text-muted">(Optional)</span></label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+
+
+          <a href="#"><button class="login_btn" id="login" >Submit</button></a>
+         </div>
+        </div>
+    </section>
+  
+</body>
+</html>
