@@ -1,0 +1,12 @@
+#sec{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10%;
+}
+
+.needs-validation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

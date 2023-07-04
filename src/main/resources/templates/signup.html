@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/Style.css">
+
+
+
+    <!-- 우클릭 방지-->
+    <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
+    </script>
+
+</head>
+<body class="container">
+<!--왼쪽 로고-->
+<section class="section1">
+    <img class="logo_gif" src="/images/logoback.gif">
+</section>
+
+
+<!--오른쪽 로고와 로그인 박스-->
+<div class="section2" >
+    <a href="/"><img class="logo_text" src="/images/logotext.png"></a>
+    <div class="signup-Box__wrapper">
+        <h2 class="header">Sig in</h2>
+        <div id="signup">
+            <form action="" method="post" id="signup-form">
+            <input class="signup_email" type="email" name="userEmail"  placeholder="이메일">
+            <input class="signup_pw" type="password" name="userPassword"  placeholder="비밀번호">
+            <input class="signup_pw" type="password" name="userPasswordChek"  placeholder="비밀번호 확인">
+            <input class="signup_name" type="name" name="userName" placeholder="닉네임">
+                <a href="/login"><button type="button" class="login_btn" id="login" >Login</button></a>
+                <a href="/signup"><button  type="submit" class="signup_btn" id="signup-btn">Sign Up</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

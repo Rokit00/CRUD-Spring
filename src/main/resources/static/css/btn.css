@@ -1,0 +1,38 @@
+.btn{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    border: none;
+}
+
+.signup_btn, .login_btn{
+    margin: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.signup_btn{
+    background-color: #604ABD;
+    color: white;
+}
+
+
+.login_btn{
+    background-color: #F5DF4D;
+}
+
+.login_btn:hover{
+    background-color: white;
+    color: black;
+}
+.signup_btn:hover{
+    background-color: white;
+    color: black;
+}
+
+#remember_check{
+    margin: 10px 0px;
+  }
