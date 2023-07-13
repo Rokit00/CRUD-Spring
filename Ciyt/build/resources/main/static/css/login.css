@@ -1,0 +1,49 @@
+.modal {
+    --bs-modal-width : 400px;
+}
+
+.modal-header {
+    border-bottom : none;
+}
+
+.login-Box__wrapper, .frm-content{
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.login-header, .singup-header {
+    color: #604ABD;
+    font-size: 20px;
+    margin:10px 0px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input, .frm-content input {
+    width: 280px;
+    height: 46px;
+    border-radius : 23px;
+    padding-left : 16px;
+    margin-top: 10px;
+}
+
+.login_btn, .singup_btn{
+    border-radius: 23px;
+    border: none;
+    width: 280px;
+    height: 46px;
+    font-size: 18px;
+}
+
+#login-form .btn {
+    margin-top: 10px;
+    padding: 0px 0px 0px 0px;
+}
+
+.singup {
+    margin-top: 10px;
+}
+
+.modal-footer {
+    border-top : none;
+}

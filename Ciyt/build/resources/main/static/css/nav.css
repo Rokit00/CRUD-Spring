@@ -1,0 +1,39 @@
+
+/*네비게이션 바*/
+nav.navbar.fixed-top {
+  background-color: #e4d4a4;
+  border-bottom : solid 2px;
+  padding : 0px 30px 0px 30px;
+  flex-wrap: nowrap;
+}
+
+.container {
+  margin: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.dropdown {
+  display: flex;
+}
+
+button.btn.btn-primary.text-nowrap,  {
+  margin-left: 10px;
+}
+
+/*네비게이션 바_메뉴 드롭다운 버튼*/
+button.btn.btn-secondary.dropdown-toggle{
+  margin-left: 10px;
+  align-items : center;
+  background-color: #FEECB7;
+  color: black;
+  font-weight: bold;
+}
+
+
+ul.dropdown-menu.dropdown-menu-end.dropdown-menu-lg-start.show {
+  right : 0;
+  left : auto;
+  background-color: #FEECB7;
+}
+

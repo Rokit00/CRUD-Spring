@@ -1,0 +1,15 @@
+
+/*인덱스_gif로고*/
+.index-images .logo_gif{
+    display: flex;
+    width: 500px;
+    margin-top: 100px;
+    padding-left: 50px;
+    padding-right : 50px;
+
+}
+
+/*네비게이션 바_로고*/
+.navbar-brand .logo{
+    width: 120px;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="CSS/Style.css">
+  <script src="/script/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+      const loginURL = 'http://121.162.79.184:8080/login';
+
+      if (window.location.href === loginURL) {
+        myModal.show();
+      }
+    });
+  </script>
+</head>
+
+<body style="background-color: #FEECB7;">
+
+<!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+       aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                      <!-- login -->
+                  <div class="login-Box__wrapper">
+                    <h2 class="login-header"  th:if="${error} != null" th:text="${error}"></h2>
+                    <h2 class="login-header"  th:if="${error} == null">로그인</h2>
+                    <!--로그인 폼-->
+                    <form action="/login" method="post" id="login-form">
+                      <input class="login_id" type="text" name="username" id="id" placeholder="Account">
+                      <input class="login_pw" type="password" name="userpassword" id="password" placeholder="Password">
+                      <div class="btn">
+                        <a href="/index"><button class="login_btn" id="login" >Login</button></a>
+                      </div>
+                    </form>
+                    <div class="singup">City가 처음이신가요? <a class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">회원가입</a></div>
+                  </div>
+                      <!-- login -->
+                </div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                <form action="/signin" method="post" id="frmIdLogin" class="frm">
+                  <!--아이디-->
+                  <div class="frm-content">
+                    <h2 class="singup-header" >회원가입</h2>
+                    <input type="text" class="form-control" id="userid" name="username" placeholder="아이디" value="" required>
+
+                    <!--비밀번호-->
+                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" value="" required>
+                    <!--<input type="password" class="form-control" id="passwordCheck" name="passwordCheck" placeholder="비밀번호 확인" value="" required>-->
+
+                    <!--닉네임-->
+                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" required>
+                    <!--이메일-->
+                    <input type="email" class="form-control" id="email" name="email" placeholder="이메일"></br>
+
+                    <!--제출 버튼-->
+
+                    <button type="submit" class="singup_btn" id="login" >Submit</button>
+                    <a class="btn btn-primary" data-bs-target="#staticBackdrop" data-bs-toggle="modal">로그인</a>
+                  </div>
+                </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+
+
+<nav class="navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img class="logo" src="images/navbarlogo.png"></a>
+  </div>
+        <div class="dropdown">
+         <button type="button" class="btn btn-primary text-nowrap" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            로그인
+          </button>
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+            메뉴
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+            <li><a class="dropdown-item" href="#">마이페이지</a></li>
+            <li><a class="dropdown-item" href="#">고객지원</a></li>
+            <li><a class="dropdown-item" href="#">로그아웃</a></li>
+          </ul>
+        </div>
+
+</nav>
+
+<div id="box">
+  <section class="section">
+    <img class="logo_gif" src="/images/logoback.gif">
+    <div class="overlay"></div>
+  </section>
+  <div id="box_1">
+    <!--글 작성-->
+    <div id="box_0">
+      <div class="writer">
+        <p class="writer__header">새글쓰기<a href="#" method="post"><i class="bi bi-send-fill" action="#" method="post"></i></a></p>
+        <!--텍스트 작성-->
+        <textarea name="main_text" rows="20" cols="80" style="resize: none;"></textarea>
+        <form action="#" method="post"></form>
+      </div>
+    </div>
+    <!--글 보기-->
+    <div class="text_view">
+      <p class="text_view__header">작성자<span>좋아요 조회수 시간 0:30</span></p>
+
+      <p class="=text-view__content">글 내용</p>
+
+      <p class="text-content-reply">댓글 작성<textarea name="main_text" rows="2" cols="80" style="resize: none;";></textarea><a href="#" method="post"><i class="bi bi-send-fill" action="#" method="post"></i></a></p>
+    </div>
+
+    <!--글 보기-->
+    <div class="text_view">
+      <p class="text_view__header">작성자<span>좋아요 조회수 시간 0:30</span></p>
+
+      <p class="=text-view__content">글 내용</p>
+
+      <p class="text-content-reply">댓글 작성<textarea name="main_text" rows="2" cols="80" style="resize: none;";></textarea><a href="#" method="post"><i class="bi bi-send-fill" action="#" method="post"></i></a></p>
+    </div>
+
+    <!--글 보기-->
+    <div class="text_view">
+      <p class="text_view__header">작성자<span>좋아요 조회수 시간 0:30</span></p>
+
+      <p class="=text-view__content">글 내용</p>
+
+      <p class="text-content-reply">댓글 작성<textarea name="main_text" rows="2" cols="80" style="resize: none;";></textarea><a href="#" method="post"><i class="bi bi-send-fill" action="#" method="post"></i></a></p>
+    </div>
+
+    <!--글 보기-->
+    <div class="text_view">
+      <p class="text_view__header">작성자<span>좋아요 조회수 시간 0:30</span></p>
+
+      <p class="=text-view__content">글 내용</p>
+
+      <p class="text-content-reply">댓글 작성<textarea name="main_text" rows="2" cols="80" style="resize: none;" ;></textarea><a href="#" method="post"><i class="bi bi-send-fill" action="#" method="post"></i></a></p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

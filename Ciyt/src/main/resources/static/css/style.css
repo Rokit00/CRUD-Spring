@@ -1,0 +1,38 @@
+
+/*css 초기화*/
+@import "reset.css";
+
+/*네비게이션 바*/
+@import "nav.css";
+
+/*인덱스 게시물*/
+@import "bbs.css";
+
+/*모든 이미지*/
+@import "images.css";
+
+@import "login.css";
+
+/*폰트*/
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.index{
+    display: flex;
+}
+
+.index-images {
+    border-right: solid 2px;
+    background-color: #e4d4a4;
+    height: 100vh;
+    position : sticky;
+    top: 50px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .index-images {
+        display: none;
+    }
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+  <title>Document</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="CSS/Style.css">
+  <script src="/script/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body style="background-color: #FEECB7;">
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- login -->
+        <div class="login-Box__wrapper">
+          <h2 class="login-header" th:if="${error} != null" th:text="${error}"></h2>
+          <h2 class="login-header" th:if="${error} == null">로그인</h2>
+          <!--로그인 폼-->
+          <form action="/login" method="post" id="login-form">
+            <input class="login_id" type="text" name="username" id="id" placeholder="아이디">
+            <input class="login_pw" type="password" name="userpassword" id="password" placeholder="비밀번호">
+            <div class="btn">
+              <a href="/index"><button class="login_btn" id="login" style="margin-bottom: 20px;">Login</button></a>
+            </div>
+          </form>
+          <div class="singup">City가 처음이신가요?<a class="btn btn-primary" style="margin-left: 50px;"
+                                              data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">회원가입</a></div>
+        </div>
+        <!-- login -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+     tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/signup" method="post" id="frmIdLogin" class="frm">
+          <!--아이디-->
+          <div class="frm-content">
+            <h2 class="singup-header">회원가입</h2>
+            <input type="text" class="form-control" id="userid" name="username" placeholder="아이디" value="" required>
+
+            <!--비밀번호-->
+            <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" value=""
+                   required>
+            <!--<input type="password" class="form-control" id="passwordCheck" name="passwordCheck" placeholder="비밀번호 확인" value="" required>-->
+
+            <!--닉네임-->
+            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" required>
+            <!--이메일-->
+            <input type="email" class="form-control" id="email" name="email" placeholder="이메일"></br>
+
+            <!--제출 버튼-->
+
+            <button type="submit" class="singup_btn" id="login">Submit</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+
+
+<nav class="navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img class="logo" src="images/navbarlogo.png"></a>
+  </div>
+
+  <div class="navbar-button">
+    <button type="button" class="btn btn-primary text-nowrap" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            th:if="${nickname == null}">
+      로그인
+    </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" th:if="${nickname} != null"
+            th:text="${nickname} + '님 환영합니다.'">Community City</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/login" th:if="${nickname} == null">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/signup" th:if="${nickname} == null">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/logout" th:if="${nickname} != null">Logout</a>
+          </li>
+        </ul>
+        <div>
+          <hr> <p>문의사항 : eogus2083@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="index">
+  <div class="index-images">
+    <img class="logo_gif" src="/images/logoback.gif">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="feed-container">
+    <!--글 작성-->
+    <div class="feed">
+      <div class="post">
+        <header class="post-header">
+          <div class="user-info">
+            <!--왼쪽 익명이미지랑 이름 DIV 묶임-->
+            <div class="avater">
+              <img th:src="@{'https://source.boringavatars.com/beam/35/' + ${#strings.randomAlphanumeric(10)} + '?square=true&colors=9B619B,EED1EF,FED7CB,FBED8E,F9D427'}" width="35" height="35">
+            </div>
+
+          </div>
+        </header>
+        <!--글 작성 텍스트 영역-->
+        <form action="/login/post" method="post" class="add-comment">
+          <p><span th:if="${session.nickname} != null" th:text="${session.nickname}"></span></p>
+          <input type="hidden" name="nickname" th:if="${nickname != null}" th:value="${nickname}" />
+
+          <!--              <input required name="nickname" placeholder="Name" class="username" th:if="${session.nickname} == null"/>-->
+
+          <textarea required name="content" class="comment-textarea" cols="40" rows="7" placeholder="Write a Content"
+                    style=" margin-top: 10px"></textarea>
+
+
+
+          <button id="go" class="comment-btn" type="submit"
+                  style="margin-top: 10px; border: none; background-color: rgba(0,0,0,0);">
+            <img src="/images/send.svg">
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--글 내용-->
+    <div class="feed">
+      <div class="post-1" th:each="post : ${posts}">
+        <!--게시글 헤더-->
+        <div class="post-header-1">
+          <div class="user-info-1">
+            <!--사용자 이미지-->
+            <div class="avater-1">
+              <img th:src="@{'https://source.boringavatars.com/beam/35/' + ${#strings.randomAlphanumeric(10)} + '?square=true&colors=9B619B,EED1EF,FED7CB,FBED8E,F9D427'}" width="35" height="35">
+            </div>
+            <!--이름-->
+            <!--                <span class="username-1" th:if="${session.nickname}" th:text="${session.nickname}"></span>-->
+            <span class="username-1" th:text="${post.nickname}"></span>
+            <!--작성 시간-->
+            <span class="post-time-1" th:utext="${#strings.substring(post.CreatedAt, 0, 10) + ' ' + #strings.substring(post.CreatedAt, 11, 16)}"></span>
+
+            <!--수정-->
+            <!--                <form>-->
+            <!--                  <button style="border: none; flex-grow: 2; background-color: rgba(0,0,0,0);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">-->
+            <!--                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>-->
+            <!--                  </svg></button>-->
+            <!--                </form>-->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primarybtn btn-primary" data-bs-toggle="modal" data-bs-target="#edit"
+                    th:data-post-id="${post.id}" th:data-post-content="${post.content}"
+                    onclick="openEditModal(this.getAttribute('data-post-id'), this.getAttribute('data-post-content'))">수정</button>
+
+            <input type="hidden" name="postId" id="postId" />
+
+            <!-- 게시글 수정 폼 -->
+            <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">수정</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form action="/update-post" method="post">
+                    <div class="modal-body">
+                      <input type="hidden" name="postId" id="editPostId" />
+                      <input type="text" name="content" id="content" />
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">저장</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--삭제 버튼-->
+            <!--                <span style="margin-left: 20px; flex-grow: 0.1;">-->
+            <!--                          <form action="/delete-post" method="post">-->
+            <!--                              <input type="hidden" name="postId" th:value="${post.id}" />-->
+            <!--                              <button type="submit" class="btn-close" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>-->
+            <!--                          </form>-->
+            <!--                </span>-->
+            <!-- <button type="button" id="realroom" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              삭제
+            </button> -->
+            <button type="button" id="realroom" class="btn-close btn-close-black" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">삭제</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    정말 삭제 할꺼에여?
+                  </div>
+                  <div class="modal-footer">
+                    <form action="/delete-post" method="post">
+                      <button type="submit" class="btn btn-primary">삭제</button>
+                      <input type="hidden" name="postId" th:value="${post.id}" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!--내용-->
+        <div class="post-content-1">
+          <span th:text="${post.content}">aㅇㄴㅇㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴ</span>
+        </div>
+        <!--        &lt;!&ndash;댓글&ndash;&gt;-->
+        <!--        <form action="/index" method="post" class="add-comment">-->
+        <!--            <textarea name="comment" class="comment-textarea" cols="40" rows="2" placeholder="Write a comment"></textarea>-->
+        <!--            <button href="#" style="margin-left: 10px; margin-top: 25px;;">-->
+        <!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">-->
+        <!--                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>-->
+        <!--                </svg>-->
+        <!--            </button>-->
+        <!--        </form>-->
+        <!--        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+        <!--        <button type="button" class="btn btn-primary" data-bs-toggle="modal" style="margin-top: 5px;" data-bs-target="#staticBackdrop">-->
+        <!--            Comment-->
+        <!--        </button>-->
+
+        <!--        &lt;!&ndash; Modal &ndash;&gt;-->
+        <!--        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+        <!--            <div class="modal-dialog modal-dialog-scrollable">-->
+        <!--                <div class="modal-content">-->
+        <!--                    <div class="modal-header">-->
+        <!--                        <h1 class="modal-title fs-5" id="staticBackdropLabel">댓글 보기</h1>-->
+        <!--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+        <!--                    </div>-->
+        <!--                    <div class="modal-body">-->
+        <!--                        <p>댓글1: 댓글 1입니다.</p>-->
+        <!--                    </div>-->
+        <!--                    <div class="modal-body">-->
+        <!--                        <p>댓글1: 댓글 1입니다.</p>-->
+        <!--                    </div>-->
+        <!--                    <div class="modal-footer">-->
+        <!--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var likeButtons = document.getElementsByClassName('btn-close btn-close-black');
+
+  for (var i = 0; i < likeButtons.length; i++) {
+    likeButtons[i].addEventListener('click', function () {
+      var audio = new Audio('/audio/ote.mp3');
+      audio.play();
+    });
+  }
+</script>
+<script>
+  var likeButtons = document.getElementsByClassName('btn btn-primarybtn btn-primary');
+
+  for (var i = 0; i < likeButtons.length; i++) {
+    likeButtons[i].addEventListener('click', function () {
+      var audio = new Audio('/audio/realroom.mp3');
+      audio.play();
+    });
+  }
+</script>
+<script>
+  var likeButtons = document.getElementsByClassName('btn btn-primary text-nowrap');
+
+  for (var i = 0; i < likeButtons.length; i++) {
+    likeButtons[i].addEventListener('click', function () {
+      var audio = new Audio('/audio/single.mp3');
+      audio.play();
+    });
+  }
+</script>
+  <script>
+    function escapeSingleQuotes(str) {
+      return str.replace(/'/g, "\\'");
+    }
+    function openEditModal(postId, content) {
+      const escapedContent = escapeSingleQuotes(content);
+      document.getElementById('editPostId').value = postId;
+      document.getElementById('content').value = escapedContent;
+      $('#edit').modal('show');
+    }
+  </script>
+
+</body>
+
+</html>
